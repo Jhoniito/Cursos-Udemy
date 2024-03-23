@@ -1,22 +1,42 @@
+:root{
+    --gris: #ccdbdc;
+    --primario: #80ced7;
+    --secundario: #f9c74f;
+    --blanco: #ffffff;
+    --negro: #212121
+}
+
 html{
     font-size: 62.5%; 
 }
 body{
     font-size: 16px;
+    font-family: "Anta", sans-serif;
 }
 /*Con los valores en las propiedadades de html y body establecidas, será mas facil utilizar la unidad de medida rem ya que 1rem = 10px*/
 .titulo{
     text-align: center;
     font-size: 3.8; /*1 rem = 10px*/
+    
 }
 
 .titulo span{
-    font-size: 2rem;
-    color: red;
-    
+    font-size: 2rem;    
 }
 /*
 span{
     color: purple!important; // La propiedad !important eleva el nivel mas alto de especificidad
 }
 */
+
+
+.contenedor{
+    width: 120rem;
+    margin: 0 auto;
+    
+}
+.nav-bg{
+    background-color: var(--secundario);
+    
+
+}
