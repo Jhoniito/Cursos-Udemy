@@ -7,17 +7,30 @@
 }
 
 html{
-    font-size: 62.5%; 
+    font-size: 62.5%;
+    box-sizing: border-box;/*El valor border-box en el box-sizing hace que el padding y el border pasen a formar parte del cálculo del ancho de la caja y no lo suman posteriormente.*/ 
+}
+*, *:before, *::after{ 
+    box-sizing: inherit;/*El valor inherit indica que el elemento deberá heredar el valor de box-sizing de su elemento contenedor, en lugar de establecerlo explícitamente.*/
 }
 body{
     font-size: 16px;
     font-family: "Anta", sans-serif;
 }
 /*Con los valores en las propiedadades de html y body establecidas, será mas facil utilizar la unidad de medida rem ya que 1rem = 10px*/
-.titulo{
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
     text-align: center;
-    font-size: 3.8; /*1 rem = 10px*/
-    
 }
 
 .titulo span{
@@ -31,12 +44,105 @@ span{
 
 
 .contenedor{
-    width: 120rem;
+    max-width: 120rem; /*Coge el valor maximo indciado si esta disponible, sino toma el 100% de ancho por defecto un div*/
     margin: 0 auto;
     
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .8rem;
+
+    width: 80%;
+    text-align: center;
+}
+
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
 }
 .nav-bg{
     background-color: var(--secundario);
     
 
+}
+
+.navegacion-principal {
+    
+    display: flex; /*Siempre que queramos utilizar flexbox tendremos que ir hacia el elemento padre de lo que deseamos alinear*/
+    align-items: center;
+    flex-direction: column; /*flex-direction se aplica con elementos ordenados verticalmente*/
+    
+}
+
+@media (min-width: 480px){/*Movil*/
+    
+}
+@media (min-width: 768px){ /*tablet*/
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;/*Justify-content se aplica con elementos ordenados horizontalmente*/
+        /*Distrubuye los elementos, ocupando el principio y el fin del contenedor y separando cada uno equitativamente*/
+        
+    }
+    
+}
+@media (min-width: 1140px){/*Laptop*/
+    
+}
+@media (min-width: 1440px){/*Monitores Grandes*/
+    
+}
+
+.navegacion-principal a {
+    padding: 1rem 5rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--negro);
+
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position:relative;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+    background-color: rgb(0 0 0 / 70% );/*Nuevo metodo para la transparencia*/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
 }
