@@ -210,7 +210,10 @@ h3{font-size: 2.4rem;}
 .bloque__titulo{
     margin: 0;
 }
-
+.bloque p {
+    text-align:center;
+    margin: 0 2rem;
+}
 
 /*Pagina Producto*/
 @media (min-width: 768px){
@@ -220,7 +223,11 @@ h3{font-size: 2.4rem;}
         column-gap: 2rem;
     }
 }
+.camisa__contenido p{
+    text-align: justify;
+    margin-right: 1rem;
 
+}
 .formulario{
     display: grid;
     grid-template-columns: repeat(2,1fr);
