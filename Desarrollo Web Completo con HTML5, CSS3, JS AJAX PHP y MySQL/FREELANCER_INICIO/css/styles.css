@@ -254,7 +254,7 @@ span{
     }
 }
 
-.campo:nth-child(3), .campo:nth-child(4){ /*se seleeciona un evento el cual se llaman igual*/
+.campo:nth-child(3), .campo:nth-child(4){ /*se selecciona un evento el cual se llaman igual*/
     grid-column: 1/3;
     
 
