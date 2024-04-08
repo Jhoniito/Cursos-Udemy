@@ -1,3 +1,13 @@
+<?php
+require "includes/funciones.php";
+
+echo __DIR__; // Es una global de php que nos imprime el directorio en donde se esta ejecutando
+
+echo __FILE__; // Es una global de php que nos imprime la ubicacion del archivo en donde se esta ejecutando
+
+$consulta = obtener_servicios();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +29,19 @@
                 <h2>Servicios</h2>
                 <p class="text-center">Elige tus Servicios a Continuación</p>
                 <div id="servicios" class="listado-servicios">
-                    
+                    <?php
+
+                    while($servicio = mysqli_fetch_assoc($consulta)) { ?>
+                    <div class="servicio">
+                        <p class="nombre-servicio">
+                            <?php
+                            echo $servicio["nombre"];
+                            echo $servicio["precio"];
+                            ?>
+                        </p>
+                    </div>
+
+                    <?php }?>
                 </div>
             </div>
         </div>

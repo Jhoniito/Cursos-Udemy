@@ -1,0 +1,4 @@
+<?php
+?>
+
+<h1>ESTO ES LA PAGINA DE SUPER-ADMINISTRADOR</h1>

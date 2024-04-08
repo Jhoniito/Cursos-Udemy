@@ -1,0 +1,5 @@
+<?php
+
+?>
+
+<h1>ESTO ES LA PAGINA DE USUARIO ESTANDAR</h1>

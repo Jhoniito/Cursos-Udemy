@@ -39,25 +39,28 @@
     </form>
     </div>
 	<?php
+    
 		include "consultas.php";
 	if(isset($_POST["acceder"])){ // Si ejecuta el boton acceder con metodo post...
-		$nombre = $_POST["nombreUsuario"]; // Creará la variable con el parametro que hayamos introducido en nombreUsuario
-		$correo = $_POST["correoUsuario"]; // Creará la variable con el parametro que hayamos introducido en correoUsuario
-		$tipoUsuario = tipoUsuario($nombre, $correo); // Creará otra variable cuyo valor sera el resultado de la consulta tipoUsuario
+		$nombre = $_POST["usuario"]; // Creará la variable con el parametro que hayamos introducido en nombreUsuario
+		$contraseña = $_POST["contraseña"]; // Creará la variable con el parametro que hayamos introducido en correoUsuario
+		$tipoUsuario = tipoUsuario($nombre, $contraseña); // Creará otra variable cuyo valor sera el resultado de la consulta tipoUsuario
 		setcookie("datosU", $tipoUsuario, time()+600); // Asignaremos a las cookies el valor de tipoUsuario durante 600 segundos
 		if($tipoUsuario === "superadmin"){ // Si el resultado es superadmin...
-			echo "Accede a como SUPER-ADMIN $nombre <a href='usuarios.php'>aqui</a>"; // nos indicara que lo somos y 
-																					 //nos indicara un link para acceder a usuarios.php
+			header("Location: superadmin.php");
+        exit();
 		}
-		elseif($tipoUsuario === "autorizado"){ //Si el resultado es autorizado...
-			echo "$nombre AUTORIZADO accede <a href='articulos.php'>aqui</a>"; //nos indicara que lo somos y 
-																			  //nos indicara un link para acceder a articulos.php 
+		elseif($tipoUsuario === "estandar"){ //Si el resultado es autorizado...
+			header("Location: estandar.php");
+            exit();														  //nos indicara un link para acceder a articulos.php 
 		}
-		elseif($tipoUsuario === "registrado"){ // Si el resultado es registrado...
-			echo "$nombre NO ESTA AUTORIZADO"; // nos indicara que estamos no estamos autorizados 
+		elseif($tipoUsuario === "admin"){ // Si el resultado es registrado...
+			header("Location: admin.php");
+            exit();
 		}
 		else{ // Si los datos introducidos no coinciden con ningun usuario nos indicara que no estamos registrados o bien, 
-			echo "CREDENCIALES INCORRECTAS O NO REGISTRADO";// las credenciales son incorrectas
+			echo "DATOS DE INGRESO ERRONEOS";// las credenciales son incorrectas
+
 		}
 	};
 
