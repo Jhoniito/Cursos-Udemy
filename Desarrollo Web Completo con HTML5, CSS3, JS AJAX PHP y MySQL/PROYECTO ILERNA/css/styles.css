@@ -20,6 +20,14 @@ body{
 }
 /*Con los valores en las propiedadades de html y body establecidas, será mas facil utilizar la unidad de medida rem ya que 1rem = 10px*/
 
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
 .contenedor{
     max-width: 50rem; /*Coge el valor maximo indicado si esta disponible, sino toma el 100% de ancho por defecto un div*/
     height: 50rem;
@@ -75,9 +83,38 @@ h2{
 
 
 
-/* NAVEGACION PRINCIPAL*/
+/* DASHBOARD*/
 
+.modulos-nav{
+    height: 100vh;
 
+    display: grid;
+
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: 80px 1fr;
+    
+}
+.header {
+    background-color: var(--primario);
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.sidebar{
+    background-color: var(--negro);
+    grid-column: 1/2;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    background-color: var(--gris);
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
 
 /* HERO */
 

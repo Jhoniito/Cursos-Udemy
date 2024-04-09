@@ -1,4 +1,0 @@
-<?php
-?>
-
-<h1>ESTO ES LA PAGINA DE ADMINISTRADOR</h1>

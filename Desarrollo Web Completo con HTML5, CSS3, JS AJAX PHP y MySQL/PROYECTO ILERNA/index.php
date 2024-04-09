@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="log">
     <header class="header">
         <a href="index.html"><img class="header__logo" src="img/logo.png" alt="Logotipo"></a>
     </header>
@@ -53,10 +53,6 @@
 		elseif($tipoUsuario === "estandar"){ //Si el resultado es autorizado...
 			header("Location: estandar.php");
             exit();														  //nos indicara un link para acceder a articulos.php 
-		}
-		elseif($tipoUsuario === "admin"){ // Si el resultado es registrado...
-			header("Location: admin.php");
-            exit();
 		}
 		else{ // Si los datos introducidos no coinciden con ningun usuario nos indicara que no estamos registrados o bien, 
 			echo "DATOS DE INGRESO ERRONEOS";// las credenciales son incorrectas
