@@ -62,4 +62,17 @@ function crearUsuario($nombre,$apellido,$email,$contraseña,$rol){
 
 }
 
-function 
+
+
+
+function borrarUsuario($IdUser){
+
+    $conexion = crearConexion();
+
+    $querySQL = "DELETE FROM usuariosp WHERE IdUser = '$IdUser'";
+
+    $resultado = mysqli_query($conexion,$querySQL);
+
+}
+
+

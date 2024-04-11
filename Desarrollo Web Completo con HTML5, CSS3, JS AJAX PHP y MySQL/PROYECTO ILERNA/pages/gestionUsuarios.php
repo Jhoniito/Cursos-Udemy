@@ -27,6 +27,18 @@
 
 <main class="main">
 
+    
+
+    <!-- MOSTRAR TODOS LOS USUARIOS -->
+
+
+
+    <?php
+    include "funciones.php";
+    mostrarUsuarios();
+
+        ?>
+        
 </main>
 
 </body>
