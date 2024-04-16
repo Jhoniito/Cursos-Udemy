@@ -48,3 +48,18 @@ p {
 }
 
 /** CODIGO AQUI **/
+
+@media (min-width: 768px){
+    .con-sidebar{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        column-gap: 4rem;
+        grid-auto-flow:column; /*Esta propiedad ajusta las columnas conforme las vamos colocando sin dejar espacios en blanco*/
+    }
+    aside{
+        grid-column: 1 / 2;
+        
+    }
+    
+    
+}

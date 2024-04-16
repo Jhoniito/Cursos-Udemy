@@ -49,3 +49,15 @@ p {
 
 
 /** CODIGO AQUI **/
+@media (min-width: 768px){
+    .con-sidebar{
+        display: flex;
+        gap: 2rem;
+    }
+    aside{
+        flex: 1; /*esta propiedad reparte el espacio disponible conforme el valor que se le da, es decir, al <aside> le va a dar 1px hasta que se le permita.Como hay otro flex:3 del article, este realizara lo mismo...en resumen es como en grid un 1fr 3fr*/
+    }
+    article{
+        flex: 3;
+    }
+}
