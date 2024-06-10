@@ -4,46 +4,52 @@
 require "db.php";
 
 function inicioSesion($email, $contraseña){
-        //IMPORTAR CREDENCIALES
-        $db = conexionDB();
+    
+    //IMPORTAR CREDENCIALES
+    $db = conexionDB();
 
-        //CONSULTA SQL
-        $sql = "SELECT * FROM usuarios WHERE email = '$email';";
-        ;
+    //CONSULTA SQL
+    $sql = "SELECT * FROM usuarios WHERE email = '$email';";
+    ;
 
-        //REALIZAR LA CONSULTA
-        $consulta = mysqli_query($db, $sql);
+    //REALIZAR LA CONSULTA
+    $consulta = mysqli_query($db, $sql);
+
+
+
+    if ($consulta -> num_rows) { // Se obtiene el n° de filas de la consulta y en caso de que haya devuelto
+                                 // mas de una ->
+        $usuario = mysqli_fetch_assoc($consulta); // -> almacena los datos en un array asociativo el cual
+        // podremos tener acceso a cada dato de cada campo a tarves de las claves del array
 
         
+        echo "EL USUARIO SI EXISTE<br>"; // Mostrara por pantalla que el usuario si existe
 
-        if ($consulta -> num_rows) {
-            $usuario = mysqli_fetch_assoc($consulta);
-
-            
-            echo "EL USUARIO SI EXISTE<br>";
-
-            $auth = password_verify($contraseña, $usuario["contraseña"]);
+        $auth = password_verify($contraseña, $usuario["contraseña"]); // Aqui verificara la contraseña del usuario 
+        // encontrado por la consulta a traves de la funcion password_verify que es de PHP la cual compara contraseñas
+        // de texto plano con la constraseña cifrada
 
 
-            if($auth) {
-                session_start();
-                $_SESSION["login"] = true;
-                $_SESSION["idRol"] = $usuario["idRol"]; 
+        if($auth) {
+            session_start(); //Inicia una sesion el cual agregaremos dos variables login e idRol para almacenar
+            // los datos y asi poder determinar que acceso tendra cada tipo de usuario en cada pagina
+            $_SESSION["login"] = true;
+            $_SESSION["idRol"] = $usuario["idRol"]; 
 
-                return $auth;
+            return $auth;
 
-
-            } else {
-
-                echo "LA CONTRASEÑA ES ERRONEA<br>";
-            }
 
         } else {
-            echo "EL USUARIO NO EXISTE<br>";
+
+            echo "LA CONTRASEÑA ES ERRONEA<br>";
         }
 
-}
+    } else {
+        echo "EL USUARIO NO EXISTE<br>";
+    }
 
+
+}
 
 ////////////////////////
 

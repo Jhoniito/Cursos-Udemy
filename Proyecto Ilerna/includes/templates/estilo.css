@@ -77,7 +77,7 @@ body{
 }
 
 .formulario fieldset{
-    border: none;
+    border: none; /* Quitamos el borde por defecto del formulario*/
 }
 
 
