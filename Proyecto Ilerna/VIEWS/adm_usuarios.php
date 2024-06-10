@@ -1,16 +1,16 @@
 <?php
 ob_start();
 
-session_start();
+ session_start();
 
-$rol = $_SESSION["idRol"];
+ $rol = $_SESSION["idRol"];
 
 
-if($rol != 1){
+ if($rol != 1){
 
-    header("Location: /dasdsa" );
+     header("Location: /dasdsa" );
 
-}
+ }
 include  "../includes/templates/header.php";
 require "../includes/funciones_usuarios.php";
 
