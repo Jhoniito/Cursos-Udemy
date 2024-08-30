@@ -3,56 +3,13 @@
 require "db.php";
 
 
-function inicioSesion($email, $contraseña){
-    try{
-        //IMPORTAR CREDENCIALES
-        $db = conexionDB();
 
-        //CONSULTA SQL
-        $sql = "SELECT * FROM usuarios WHERE email = '$email';";
-        ;
-
-        //REALIZAR LA CONSULTA
-        $consulta = mysqli_query($db, $sql);
-
-
-
-        if ($consulta -> num_rows) {
-            $usuario = mysqli_fetch_assoc($consulta);
-
-            
-            echo "EL USUARIO SI EXISTE<br>";
-
-            $auth = password_verify($contraseña, $usuario["contraseña"]);
-
-
-            if($auth) {
-                session_start();
-                $_SESSION["login"] = true;
-                $_SESSION["idRol"] = $usuario["idRol"]; 
-
-                return $auth;
-
-
-            } else {
-
-                echo "LA CONTRASEÑA ES ERRONEA<br>";
-            }
-
-        } else {
-            echo "EL USUARIO NO EXISTE<br>";
-        }
-
-    } catch (\Throwable $th) {
-        var_dump($th);
-    }
-}
 
 
 ////////////////////////
 
 function consulta_articulo(){
-    try{
+ 
         //IMPORTAR CREDENCIALES
         $db = conexionDB();
 
@@ -64,12 +21,6 @@ function consulta_articulo(){
 
         return $consulta;
 
-
-
-
-    } catch (\Throwable $th) {
-        var_dump($th);
-    }
 }
 
 ///////////////////////////
